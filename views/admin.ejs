@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - RUIZ Instalación de Radio Pantallas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white p-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Logotipo de RUIZ Instalación de Radio Pantallas" class="logo-img">
+            </div>
+            <h1>Administrador - RUIZ Instalación de Radio Pantallas</h1>
+            <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </header>
+    <main class="container mt-5">
+        <h2>Agregar Producto</h2>
+        <form action="/add-product" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Nombre del Producto:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Imagen:</label>
+                <input type="file" class="form-control-file" id="image" name="image" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Producto</button>
+        </form>
+
+        <h2 class="mt-5">Productos Existentes</h2>
+        <div class="row">
+            <% products.forEach(product => { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<%= product.image %>" class="card-img-top product-img" alt="<%= product.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.name %></h5>
+                            <p class="card-text">$<%= product.price %></p>
+                            <a href="/edit-product/<%= product._id %>" class="btn btn-warning">Editar</a>
+                            <form action="/delete-product/<%= product._id %>" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>Contacto: info@ruizinstalacion.com</p>
+    </footer>
+</body>
+</html>
