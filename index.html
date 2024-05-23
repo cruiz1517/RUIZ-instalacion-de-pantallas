@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUIZ Instalación De Pantallas para Carros</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo RUIZ Instalación De Pantallas para Carros">
+        </div>
+        <h1>RUIZ Instalación De Pantallas para Carros</h1>
+        <button class="back-button" onclick="goBack()">Atrás</button>
+        <div class="cart-icon" onclick="toggleCart()">
+            <img src="images/cart.png" alt="Carrito de compras">
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+    <nav class="side-nav">
+        <ul>
+            <li><a href="#inicio" class="dropbtn">Inicio</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Servicios</a>
+                <div class="dropdown-content">
+                    <a href="#instalacion">Instalación</a>
+                    <a href="#reparacion">Reparación</a>
+                    <a href="#otros">Otros</a>
+                </div>
+            </li>
+            <li><a href="#tienda" class="dropbtn">Tienda</a></li>
+            <li><a href="#video" class="dropbtn">Video</a></li>
+            <li><a href="#contacto" class="dropbtn">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="cart-container" id="cart-container">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: $0</p>
+        <button onclick="showPaymentForm()">Pagar</button>
+    </div>
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentForm()">&times;</span>
+            <h2>Información de Pago</h2>
+            <form id="payment-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="card-number">Número de Tarjeta:</label>
+                <input type="text" id="card-number" name="card-number" required>
+                <label for="expiration">Fecha de Expiración:</label>
+                <input type="text" id="expiration" name="expiration" placeholder="MM/AA" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+                <button type="submit">Procesar Pago</button>
+            </form>
+        </div>
+    </div>
+    <main>
+        <section id="inicio" class="hero">
+            <h2>Instalación Profesional de Pantallas para Carros</h2>
+            <p>Ofrecemos servicios de instalación de pantallas de alta calidad para todo tipo de vehículos.</p>
+            <img src="images/instalacion.jpg" alt="Instalación de pantalla en un carro">
+        </section>
+        <section id="instalacion" class="services">
+            <h2>Nuestros Servicios</h2>
+            <div class="service-item">
+                <img src="images/camara_reversa.png" alt="Cámara de reversa">
+                <p>Instalación de cámaras de reversa para una mayor seguridad al conducir.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/Captura1.png" alt="Pantalla de carro">
+                <p>Montaje de sistemas de entretenimiento en vehículos comerciales.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/reparaciones.jpg" alt="Reparaciones">
+                <p>Soluciones personalizadas y reparaciones de sistemas de entretenimiento.</p>
+            </div>
+        </section>
+        <section id="tienda" class="store">
+            <h2>Tienda</h2>
+            <div class="store-item">
+                <img src="images/camara_reversa.png" alt="Cámara de reversa">
+                <p>Cámara de reversa</p>
+                <p>Precio: $50</p>
+                <button onclick="addToCart('Cámara de reversa', 50)">Añadir al Carrito</button>
+            </div>
+            <div class="store-item">
+                <img src="images/Captura1.png" alt="Pantalla de carro">
+                <p>Pantalla de carro</p>
+                <p>Precio: $150</p>
+                <button onclick="addToCart('Pantalla de carro', 150)">Añadir al Carrito</button>
+            </div>
+            <div class="store-item">
+                <img src="images/reparaciones.jpg" alt="Reparaciones">
+                <p>Reparaciones</p>
+                <p>Precio: $100</p>
+                <button onclick="addToCart('Reparaciones', 100)">Añadir al Carrito</button>
+            </div>
+        </section>
+        <section id="video" class="video-section">
+            <h2>Video de Instalación</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ipdt7jFzabA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+    <footer id="contacto">
+        <h2>Contacto</h2>
+        <p>Tel: <a href="tel:+6824297574">682-429-7574</a></p>
+        <p>Email: <a href="mailto:ruiznaun41@gmail.com">ruiznaun41@gmail.com</a></p>
+    </footer>
+    <script src="scripts/particles.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

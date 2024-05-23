@@ -1,0 +1,477 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background: url('images/background-space.jpg') no-repeat center center fixed; /* Fondo de espacio */
+    background-size: cover;
+    color: #fff; /* Texto blanco */
+}
+
+/* Asegúrate de que el contenedor de partículas no bloquee el desplazamiento */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente para las partículas */
+    z-index: -1;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: rgba(30, 30, 30, 0.8); /* Fondo negro semitransparente */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    transition: background-color 0.5s;
+    position: relative;
+}
+
+header:hover {
+    background-color: rgba(50, 50, 50, 0.8);
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: logoSpin 10s infinite linear;
+}
+
+@keyframes logoSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo del botón atrás */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* Estilo del ícono del carrito */
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.cart-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Contenedor del carrito */
+.cart-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: rgba(30, 30, 30, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Oculto por defecto */
+}
+
+.cart-container h2 {
+    margin-top: 0;
+}
+
+.cart-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-container ul li {
+    margin: 10px 0;
+}
+
+.cart-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cart-container button:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* Estilo del menú lateral */
+.side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(30, 30, 30, 0.95);
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: width 0.5s;
+}
+
+.side-nav:hover {
+    width: 300px; /* Ampliar el menú al pasar el ratón */
+}
+
+.side-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-nav ul li {
+    padding: 8px 16px;
+    font-size: 18px;
+    color: #fff;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.side-nav ul li:hover {
+    background-color: rgba(50, 50, 50, 0.8);
+    color: #ffdd57; /* Amarillo dorado */
+}
+
+.side-nav ul li a {
+    color: inherit; /* Heredar el color del elemento li */
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    background-color: rgba(40, 40, 40, 0.95);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    color: #ffdd57;
+}
+
+.show {
+    display: block;
+}
+
+/* Modal de pago */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-bottom: 5px;
+}
+
+.modal-content form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal-content form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content form button:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* Sección de héroe */
+.hero {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    background-color: rgba(50, 50, 50, 0.8); /* Fondo negro semitransparente */
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Sección de servicios */
+.services {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    padding: 2rem 1rem;
+    background-color: rgba(20, 20, 20, 0.9); /* Fondo negro semitransparente */
+    text-align: center;
+}
+
+.service-item {
+    margin: 1rem 0;
+    transition: transform 0.3s;
+}
+
+.service-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de tienda */
+.store {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    padding: 2rem 1rem;
+    background-color: rgba(20, 20, 20, 0.9); /* Fondo negro semitransparente */
+    text-align: center;
+}
+
+.store-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: rgba(40, 40, 40, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.store-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.store-item button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.store-item button:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.store-item:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de carrito */
+.cart {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    padding: 2rem 1rem;
+    background-color: rgba(20, 20, 20, 0.9); /* Fondo negro semitransparente */
+    text-align: center;
+}
+
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart ul li {
+    margin: 0.5rem 0;
+}
+
+.cart button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cart button:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* Sección de video */
+.video-section {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    padding: 2rem 1rem;
+    background-color: rgba(30, 30, 30, 0.9); /* Fondo negro semitransparente */
+    text-align: center;
+    color: #fff;
+}
+
+.video-container {
+    position: relative;
+    width: 50%; /* Ajustar el tamaño del contenedor de video */
+    margin: 0 auto; /* Centrar el contenedor de video */
+    padding-bottom: 28.25%; /* Ajustar la relación de aspecto */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo del pie de página */
+footer {
+    margin-left: 270px; /* Espacio para el menú lateral */
+    background-color: rgba(30, 30, 30, 0.9); /* Fondo negro semitransparente */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    width: calc(100% - 270px); /* Ajustar el ancho del pie de página */
+    bottom: 0;
+    animation: footerFadeIn 2s ease-in-out;
+}
+
+@keyframes footerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer h2 {
+    margin-top: 0;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ffdd57, 0 0 20px #ffdd57, 0 0 30px #ffdd57; /* Amarillo dorado */
+    }
+    to {
+        text-shadow: 0 0 20px #ffdd57, 0 0 30px #ffdd57, 0 0 40px #ffdd57; /* Amarillo dorado */
+    }
+}
+
+footer a {
+    color: #ffdd57; /* Amarillo dorado */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ffdd57, 0 0 20px #ffdd57, 0 0 30px #ffdd57; /* Amarillo dorado */
+}
